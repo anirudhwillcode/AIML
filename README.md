@@ -1,33 +1,3 @@
+# AIML things
 
-import csv
-
-with open("wsce.csv") as f:
-    csv_file = csv.reader(f)
-    data = list(csv_file)
-
-specific = data[0][:-1]
-general = [['?' for i in range(len(specific))] for j in range(len(specific))]
-
-step = 1
-for i in data:
-    if i[-1] == "Y":
-        for j in range(len(specific)):
-            if i[j] != specific[j]:
-                specific[j] = "?"
-                general[j][j] = "?"
-    elif i[-1] == "N":
-        for j in range(len(specific)):
-            if i[j] != specific[j]:
-                general[j][j] = specific[j]
-            else:
-                general[j][j] = "?"
-
-    print("Step {}".format(step))
-    print("Specific Hypothesis: ", specific)
-    print("General Hypothesis: ", general)
-    print("\n")
-
-    step += 1
-
-print("Final Specific Hypothesis: ", specific)
-print("Final General Hypothesis: ", general)
+This is for clg 
